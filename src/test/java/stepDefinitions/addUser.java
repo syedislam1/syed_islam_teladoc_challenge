@@ -98,7 +98,7 @@ public class addUser extends TestBase {
 	public void verify_if_user_is_added(String username) {
 		findUser(username);
 		try {
-			this.takeSnapShot(driver, "/Users/syedahmarislam/Desktop/");
+			this.takeSnapShot(driver, "./target/UserAdded");
 		} catch (Exception e) {
 			
 			e.printStackTrace();
@@ -118,7 +118,7 @@ public class addUser extends TestBase {
 		
 		try {
 			Thread.sleep(2000);
-			this.takeSnapShot(driver, "/Users/syedahmarislam/Desktop/");
+			this.takeSnapShot(driver, "./target/UserDeleted");
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
