@@ -24,7 +24,6 @@ Feature: Add and delete User
   | tela | doc | teladoc | 123456 | tela.test@tela.cz | 1324589765|
 
 @delete
-  
   Scenario Outline: Add User to the table
   Given user is on the desired page
   Then User look for "<username>" and delete

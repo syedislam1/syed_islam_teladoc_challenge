@@ -1,26 +1,11 @@
 package stepDefinitions;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
+
 import java.time.Duration;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.remote.service.DriverCommandExecutor;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import Utils.TestBase;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
@@ -30,43 +15,53 @@ import io.cucumber.java.en.When;
 
 
 public class addUser extends TestBase {
-
+	
+	
 
 	@Given("user is on the desired page")
 	public void user_is_on_the_desired_page(){
+		//Calling initialization from Test Base class
 		inititalization();
 	}
 
 
 	@When("user clicks on add user")
 	public void user_clicks_on_add_user() {
-		clickOn(driver, driver.findElement(By.xpath("//button[@class=\"btn btn-link pull-right\"]")), Duration.ofSeconds(20));
+		WebElement addUserbtn = driver.findElement(By.xpath("//button[@class=\"btn btn-link pull-right\"]"));
+		
+		//Calling clickOn from Test Base class
+		clickOn(driver, addUserbtn, Duration.ofSeconds(20));
 	}
 
 
 	@Then("^add  first name \"([^\"]*)\"$")
 	public void add_first_name(String fname) {
-
-		//Sendkey(driver, driver.findElement(By.xpath("//input[@name=\"LastName\"]")), fname);
-
-		driver.findElement(By.xpath("//input[@name=\"FirstName\"]")).sendKeys(fname);
+		WebElement firstName = driver.findElement(By.xpath("//input[@name=\"FirstName\"]"));
+		sendkey(driver, firstName, Duration.ofSeconds(20), fname);	
 	}
 
 	@Then("^add  last name \"([^\"]*)\"$")
 	public void add_last_name(String lname) {
-		driver.findElement(By.xpath("//input[@name=\"LastName\"]")).sendKeys(lname);
+		WebElement lastName = driver.findElement(By.xpath("//input[@name=\"LastName\"]"));
+		
+		//Calling Send key method from TestBase
+		sendkey(driver, lastName, Duration.ofSeconds(20), lname);	
+
 	}
 
 	@Then("^add  user name \"([^\"]*)\"$")
 	public void add_user_name(String usrname) {
-		// Write code here that turns the phrase above into concrete actions
-		driver.findElement(By.xpath("//input[@name=\"UserName\"]")).sendKeys(usrname);
+		WebElement userName = driver.findElement(By.xpath("//input[@name=\"UserName\"]"));
+		
+		sendkey(driver, userName, Duration.ofSeconds(20), usrname);
 	}
 
 	@Then("^add  password \"([^\"]*)\"$")
 	public void add_password(String password) {
-		// Write code here that turns the phrase above into concrete actions
-		driver.findElement(By.xpath("//input[@name=\"Password\"]")).sendKeys(password);
+		WebElement pswd = driver.findElement(By.xpath("//input[@name=\"Password\"]"));
+		
+		sendkey(driver, pswd, Duration.ofSeconds(20), password);
+		
 	}
 
 	@Then("click on company")
@@ -83,12 +78,14 @@ public class addUser extends TestBase {
 
 	@Then("^User enter email \"([^\"]*)\"$")
 	public void user_enter_email(String email) {
-		driver.findElement(By.xpath("//input[@name=\"Email\"]")).sendKeys(email);
+		WebElement eMail = driver.findElement(By.xpath("//input[@name=\"Email\"]"));
+		sendkey(driver, eMail, Duration.ofSeconds(20), email);
 	}
 
 	@Then("User enter phone number \"([^\"]*)\"$")
 	public void user_enter_phone_number(String phone) {
-		driver.findElement(By.xpath("//input[@name=\"Mobilephone\"]")).sendKeys(phone);
+		WebElement phoneNumber =  driver.findElement(By.xpath("//input[@name=\"Mobilephone\"]"));
+		sendkey(driver, phoneNumber, Duration.ofSeconds(20), phone);
 	}
 
 	@Then("User Clicks on Save")

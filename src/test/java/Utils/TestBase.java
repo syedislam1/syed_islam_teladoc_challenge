@@ -79,6 +79,12 @@ public class TestBase {
 		new WebDriverWait(driver, i).ignoring(StaleElementReferenceException.class).until(ExpectedConditions.elementToBeClickable(locator));
 		locator.click();
 	}
+	
+	public static void sendkey(WebDriver driver, WebElement locator, Duration timeout, String value) {
+		new WebDriverWait(driver, timeout).
+		until(ExpectedConditions.visibilityOf(locator));
+		locator.sendKeys(value);
+	}
 
 
 
