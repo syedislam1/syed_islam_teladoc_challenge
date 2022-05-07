@@ -22,6 +22,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import Utils.TestBase;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -74,9 +75,10 @@ public class addUser extends TestBase {
 	}
 
 	@Then("User Select Role")
-	public void user_select_role() {
-		Select role = new Select(driver.findElement(By.xpath("//select[@class=\"ng-pristine ng-invalid ng-invalid-required\"]")));
-		role.selectByVisibleText("Sales Team");
+	public void user_select_role(DataTable testData) {
+		List<String> details = testData.asList(String.class);
+		Select role = new Select(driver.findElement(By.xpath("//select[@name=\"RoleId\"]")));
+		role.selectByVisibleText(details.get(0));
 	}
 
 	@Then("^User enter email \"([^\"]*)\"$")

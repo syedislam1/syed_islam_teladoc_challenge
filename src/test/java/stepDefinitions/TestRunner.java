@@ -8,8 +8,12 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(features ="src/test/resources/Features/addUser.feature",
 glue={"stepDefinitions"},
-monochrome = true)
+	plugin = {"pretty",
+	"junit:target/MyReport/report.xml"},
+	publish = true
+	)
+
 public class TestRunner {
 
-	
+
 }

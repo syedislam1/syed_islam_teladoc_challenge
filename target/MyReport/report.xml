@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="2" time="23.477">
+    <testcase classname="Add and delete User" name="Add User to the table" time="12.884">
+        <system-out><![CDATA[Given user is on the desired page...........................................passed
+When user clicks on add user................................................passed
+Then add  first name "tela".................................................passed
+Then add  last name "doc"...................................................passed
+Then add  user name "teladoc"...............................................passed
+Then add  password "123456".................................................passed
+Then click on company.......................................................passed
+Then User Select Role.......................................................passed
+Then User enter email "tela.test@tela.cz"...................................passed
+Then User enter phone number "1324589765"...................................passed
+Then User Clicks on Save....................................................passed
+And Verify if username "teladoc" is present.................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Add and delete User" name="Add User to the table 2" time="10.405">
+        <system-out><![CDATA[Given user is on the desired page...........................................passed
+Then User look for "novak" and delete.......................................passed
+]]></system-out>
+    </testcase>
+</testsuite>

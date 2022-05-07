@@ -10,6 +10,9 @@ Feature: Add and delete User
     Then add  password "<password>"
     Then click on company 
     Then User Select Role
+    |Admin|
+    |Sales Team|
+    |Customer|
     Then User enter email "<email>"
     Then User enter phone number "<phone>"
     Then User Clicks on Save
